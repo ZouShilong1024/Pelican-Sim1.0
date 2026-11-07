@@ -1,0 +1,55 @@
+{
+  "source": "libero",
+  "name": "libero_spatial_top_drawer",
+  "prompt": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "lang": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "fps": 20.0,
+  "frames": 153,
+  "num_arms": 1,
+  "action_dim": 8,
+  "already_unified": false,
+  "temporal_stride": 1,
+  "width": 512,
+  "height": 512,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "camera": "agentview",
+  "camera_preset": "oblique45",
+  "suite": "libero_spatial",
+  "task_name": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+  "K": [
+    [
+      618.0386719675123,
+      0.0,
+      256.0
+    ],
+    [
+      0.0,
+      618.0386719675123,
+      256.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "env_id": "libero_spatial/pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+  "traj_id": "demo_0",
+  "camera_eye": [
+    0.80149866859763,
+    1.1214986685976298,
+    1.739581958046224
+  ],
+  "camera_target": [
+    -0.32,
+    0.0,
+    1.0
+  ],
+  "base_pos": [
+    -0.66,
+    0.0,
+    0.912
+  ],
+  "rgb_video": "rgb.mp4"
+}

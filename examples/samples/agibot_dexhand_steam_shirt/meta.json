@@ -1,0 +1,41 @@
+{
+  "source": "agibot_dexhand",
+  "name": "agibot_dexhand_steam_shirt",
+  "prompt": "Steam the lower portion of the hanging shirt using the handheld steamer.",
+  "lang": "Steam the lower portion of the hanging shirt using the handheld steamer.",
+  "frames": 2472,
+  "num_arms": 2,
+  "action_dim": 28,
+  "already_unified": true,
+  "temporal_stride": 12,
+  "width": 640,
+  "height": 480,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "task_name": "agibot_dexhand__task_475",
+  "episode_index": 0,
+  "left_cam_yaw_offset": 2.0,
+  "right_cam_yaw_offset": 4.6,
+  "left_cam_pitch_offset": -6.7,
+  "right_cam_pitch_offset": -7.2,
+  "camera_params": {
+    "fx": 322.7701110839844,
+    "fy": 429.8670247395833,
+    "cx": 324.472412109375,
+    "cy": 241.3980712890625,
+    "camera_offset_xyz": [
+      0.10170717286801813,
+      -0.043257098338022194,
+      0.010625643268897762
+    ]
+  },
+  "head_pos": [
+    -0.1047208160161972,
+    0.3490658402442932
+  ],
+  "waist_pos": [
+    0.436332106590271,
+    0.3199999928474426
+  ],
+  "rgb_video": "rgb.mp4"
+}

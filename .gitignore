@@ -1,0 +1,14 @@
+outputs/
+logs/
+checkpoints/
+data/
+.env.local
+__pycache__/
+*.pyc
+.venv
+.python/
+hf_cache/
+# Local-only scratch renderers. Official path is each *ActionDataset.
+action_video_render_kit/
+render_skeleton_video/
+World_Simulator.pdf

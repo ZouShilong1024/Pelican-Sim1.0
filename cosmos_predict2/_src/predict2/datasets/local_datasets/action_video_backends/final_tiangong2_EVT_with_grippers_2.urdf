@@ -1,0 +1,1737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="humanoid">
+  
+  <link name="pelvis">
+    <inertial>
+      <origin xyz="-0.000641 0.000723  -0.074769" rpy="0 0 0" />
+      <mass value="6.094610" />
+      <inertia ixx="0.020607" ixy="0.004335" ixz="0.000046" iyy="0.027481" iyz="-0.000037" izz="0.028105" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/pelvis.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/pelvis.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="hip_roll_l_link">
+    <inertial>
+      <origin xyz="-0.001848 0.055849 -0.036017" rpy="0 0 0" />
+      <mass value="0.672983" />
+      <inertia ixx="0.001020" ixy="0.000070" ixz="-0.000038" iyy="0.003221" iyz="-0.000281" izz="0.003272" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_roll_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_roll_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_camera_336_link"><visual><geometry><mesh filename="package://tiangong_description/meshes/gemini_336.STL" scale="0.001 0.001 0.001" /></geometry></visual><collision><geometry><mesh filename="package://tiangong_description/meshes/gemini_336.STL" scale="0.001 0.001 0.001"/></geometry></collision></link><link name="right_camera_336_link"><visual><geometry><mesh filename="package://tiangong_description/meshes/gemini_336.STL" scale="0.001 0.001 0.001"/></geometry></visual><collision><geometry><mesh filename="package://tiangong_description/meshes/gemini_336.STL" scale="0.001 0.001 0.001"/></geometry></collision></link><joint name="hip_roll_l_joint" type="revolute">
+    <origin xyz="0 0.028 -0.0857" rpy="0 0 0" />
+    <parent link="pelvis" />
+    <child link="hip_roll_l_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="160" lower="-0.79" upper="0.79" velocity="15.6" />
+  </joint>
+
+  <link name="hip_pitch_l_link">
+    <inertial>
+      <origin xyz="0.001125 0.001644 -0.011770" rpy="0 0 0" />
+      <mass value="4.227933" />
+      <inertia ixx="0.016785" ixy="0.000022" ixz="-0.000255" iyy="0.025135" iyz="0.000012" izz="0.015273" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="hip_pitch_l_joint" type="revolute">
+    <origin xyz="0 0.122 -0.046" rpy="0 0 0" />
+    <parent link="hip_roll_l_link" />
+    <child link="hip_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="300" lower="-2.79" upper="2.09" velocity="12.5" />
+  </joint>
+
+  <link name="hip_yaw_l_link">
+    <inertial>
+      <origin xyz="0.004124 -0.006494 -0.119737" rpy="0 0 0" />
+      <mass value="6.572700" />
+      <inertia ixx="0.056043" ixy="0.000146" ixz="-0.000059" iyy="0.063286" iyz="0.001030" izz="0.021108" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_yaw_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_yaw_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="hip_yaw_l_joint" type="revolute">
+    <origin xyz="0 0 -0.0987" rpy="0 0 0" />
+    <parent link="hip_pitch_l_link" />
+    <child link="hip_yaw_l_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="160" lower="-1.04" upper="1.04" velocity="15.6" />  
+  </joint>
+
+  <link name="knee_pitch_l_link">
+    <inertial>
+      <origin xyz="0.007489 0.001584  -0.167773" rpy="0 0 0" />
+      <mass value="3.017992" />
+      <inertia ixx="0.035604" ixy="0.000037" ixz="0.001830" iyy="0.036226" iyz="0.000475" izz="0.001951" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/knee_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/knee_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="knee_pitch_l_joint" type="revolute">
+    <origin xyz="0 -4.2833E-05 -0.3013" rpy="0 0 0" />
+    <parent link="hip_yaw_l_link" />
+    <child link="knee_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="300" lower="0.0" upper="2.39" velocity="12.5" />
+  </joint>
+
+  <link name="ankle_pitch_l_link">
+    <inertial>
+      <origin xyz="1.23076545482746E-09 5.88533416445713E-10 -3.14193115968919E-14" rpy="0 0 0" />
+      <mass value="0.111609" />
+      <inertia ixx="0.000018" ixy="9.12795578499149E-18" ixz="-8.5550749402341E-12" iyy="0.000018" iyz="2.59346326737996E-11" izz="0.000032" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ankle_pitch_l_joint" type="revolute">
+    <origin xyz="0 0 -0.4" rpy="0 0 0" />
+    <parent link="knee_pitch_l_link" />
+    <child link="ankle_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="60" lower="-1.22" upper="0.5236" velocity="12.8" />
+  </joint>
+
+  <link name="ankle_roll_l_link">
+    <inertial>
+      <origin xyz="0.021235 -4.62707223369829E-08 -0.032883" rpy="0 0 0" />
+      <mass value="1.017381" />
+      <inertia ixx="0.001028" ixy="4.59557401077979E-08" ixz="-0.000622" iyy="0.006055" iyz="4.78117170569023E-10" izz="0.006240" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_roll_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_roll_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ankle_roll_l_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="ankle_pitch_l_link" />
+    <child link="ankle_roll_l_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="30" lower="-0.4363" upper="0.4363" velocity="7.8" />
+  </joint>
+
+  <link name="hip_roll_r_link">
+    <inertial>
+      <origin xyz="-0.001848 -0.055849 -0.036017" rpy="0 0 0" />
+      <mass value="0.672983" />
+      <inertia ixx="0.001020" ixy="-0.000070" ixz="-0.000038" iyy="0.003221" iyz="0.000281" izz="0.003272" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_roll_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_roll_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hip_roll_r_joint" type="revolute">
+    <origin xyz="0 -0.028 -0.0857" rpy="0 0 0" />
+    <parent link="pelvis" />
+    <child link="hip_roll_r_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="160" lower="-0.79" upper="0.79" velocity="15.6" />
+  </joint>
+  <link name="hip_pitch_r_link">
+    <inertial>
+      <origin xyz="0.001125 -0.001644 -0.011770" rpy="0 0 0" />
+      <mass value="4.227933" />
+      <inertia ixx="0.016785" ixy="-0.000022" ixz="-0.000255" iyy="0.025135" iyz="-0.000012" izz="0.015273" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hip_pitch_r_joint" type="revolute">
+    <origin xyz="0 -0.122 -0.046" rpy="0 0 0" />
+    <parent link="hip_roll_r_link" />
+    <child link="hip_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="300" lower="-2.79" upper="2.09" velocity="12.5" />
+  </joint>
+  <link name="hip_yaw_r_link">
+    <inertial>
+      <origin xyz="0.003740 0.005658 -0.117755" rpy="0 0 0" />
+      <mass value="7.182896" />
+      <inertia ixx="0.057773" ixy="-0.000105" ixz="-0.000124" iyy="0.064848" iyz="-0.001431" izz="0.022867" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_yaw_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/hip_yaw_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hip_yaw_r_joint" type="revolute">
+    <origin xyz="0 0 -0.0987" rpy="0 0 0" />
+    <parent link="hip_pitch_r_link" />
+    <child link="hip_yaw_r_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="160" lower="-1.04" upper="1.04" velocity="15.6" />  
+  </joint>
+
+  <link name="knee_pitch_r_link">
+    <inertial>
+      <origin xyz="0.007489 -0.001584  -0.167773" rpy="0 0 0" />
+      <mass value="3.017992" />
+      <inertia ixx="0.035604" ixy="-0.000037" ixz="0.001830" iyy="0.036226" iyz="-0.000475" izz="0.001951" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/knee_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/knee_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="knee_pitch_r_joint" type="revolute">
+    <origin xyz="0 0.00015001 -0.3013" rpy="0 0 0" />
+    <parent link="hip_yaw_r_link" />
+    <child link="knee_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="300" lower="0.0" upper="2.39" velocity="12.5" />
+  </joint>
+
+  <link name="ankle_pitch_r_link">
+    <inertial>
+      <origin xyz="1.23076545482746E-09 -5.88533416445713E-10 -3.14193115968919E-14" rpy="0 0 0" />
+      <mass value="0.111609" />
+      <inertia ixx="0.000018" ixy="-9.12795578499149E-18" ixz="-8.5550749402341E-12" iyy="0.000018" iyz="-2.59346326737996E-11" izz="0.000032" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ankle_pitch_r_joint" type="revolute">
+    <origin xyz="0 0.00074981 -0.4" rpy="0 0 0" />
+    <parent link="knee_pitch_r_link" />
+    <child link="ankle_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="60" lower="-1.22" upper="0.5236" velocity="12.8" />
+  </joint>
+
+  <link name="ankle_roll_r_link">
+    <inertial>
+      <origin xyz="0.021235 4.62707223369829E-08 -0.032883" rpy="0 0 0" />
+      <mass value="1.017381" />
+      <inertia ixx="0.001028" ixy="-4.59557401077979E-08" ixz="-0.000622" iyy="0.006055" iyz="-4.78117170569023E-10" izz="0.006240" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_roll_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/ankle_roll_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="ankle_roll_r_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="ankle_pitch_r_link" />
+    <child link="ankle_roll_r_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="30" lower="-0.4363" upper="0.4363" velocity="7.8" />
+  </joint>
+
+  <link name="waist_yaw_link">
+    <inertial>
+      <origin xyz="-0.000568 0.000560 0.231488" rpy="0 0 0" />
+      <mass value="22.445155" />
+      <inertia ixx="0.429034" ixy="-0.000293" ixz="0.003462" iyy="0.379055" iyz="-0.000237" izz="0.177142" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/waist_yaw_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/waist_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="waist_yaw_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="pelvis" />
+    <child link="waist_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="120" lower="-2.96" upper="3.14" velocity="7.0" />
+  </joint>
+
+  <link name="head_yaw_link">
+    <inertial>
+      <origin xyz="-0.000198116284628826 0.000454283135208022 0.00724627742538442" rpy="0 0 0" />
+      <mass value="0.0883927289639252" />
+      <inertia ixx="0.000095" ixy="0.000001" ixz="0.000003" iyy="0.000076" iyz="0.000003" izz="0.000106" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_yaw_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="head_yaw_joint" type="revolute">
+    <origin xyz="-0.002 0 0.56508" rpy="0 0 0" />
+    <parent link="waist_yaw_link" />
+    <child link="head_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="9" lower="-1.57" upper="1.57" velocity="7.2" />
+  </joint>
+
+  <link name="head_pitch_link">
+    <inertial>
+      <origin xyz="-0.000274 0.004118 0.000023" rpy="0 0 0" />
+      <mass value="0.230460" />
+      <inertia ixx="0.000092" ixy="-0.000001" ixz="0.000001" iyy="0.000054" iyz="-7.30725289619866E-08" izz="0.000095" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_pitch_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="head_pitch_joint" type="revolute">
+    <origin xyz="0.01455 0 0.0304" rpy="0 0.2618 0" />
+    <parent link="head_yaw_link" />
+    <child link="head_pitch_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="9" lower="-0.43" upper="0.43" velocity="7.2" />
+  </joint>
+
+  <link name="head_roll_link">
+    <inertial>
+      <origin xyz="0.022467 0.001208  0.053952" rpy="0 0 0" />
+      <mass value="0.844627" />
+      <inertia ixx="0.002350" ixy="-0.000038" ixz="-0.000436" iyy="0.003365" iyz="-0.000006" izz="0.002875" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_roll_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/head_roll_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="head_roll_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="head_pitch_link" />
+    <child link="head_roll_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="9" lower="-0.43" upper="0.43" velocity="7.2" />
+  </joint>
+
+<link name="camera_head_link">
+    <inertial>
+      <origin xyz="0.00466587647124178 0.000326337304521262 0.0122709935438315" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.000074" ixy="5.03455527955493E-09" ixz="-1.79627701134011E-08" iyy="0.000016" iyz="1.09490937137388E-08" izz="0.000077" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_head_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_head_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_head_joint" type="fixed">
+    <origin xyz="0.052782 -6.5455E-05 0.067499" rpy="0 0.2618 0" />
+    <parent link="head_roll_link" />
+    <child link="camera_head_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="shoulder_pitch_l_link">
+    <inertial>
+      <origin xyz="0.007540 0.064361 -0.000037" rpy="0 0 0" />
+      <mass value="1.030628" />
+      <inertia ixx="0.000536" ixy="0.000025" ixz="1.26194941072712E-08" iyy="0.000480" iyz="2.95758293199811E-08" izz="0.000636" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="shoulder_pitch_l_joint" type="revolute">
+    <origin xyz="0 0.13039 0.37721" rpy="0.087266 0 0" />
+    <parent link="waist_yaw_link" />
+    <child link="shoulder_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="91" lower="-2.96" upper="2.96" velocity="8.8" />
+  </joint>
+
+  <link name="shoulder_roll_l_link">
+    <inertial>
+      <origin xyz="0.00106653447924365 0.00220628914286614 -0.0441160803631309" rpy="0 0 0" />
+      <mass value="0.412600522097283" />
+      <inertia ixx="0.000939" ixy="0.000001" ixz="0.000001" iyy="0.001264" iyz="0.000005" izz="0.000896" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_roll_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_roll_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="shoulder_roll_l_joint" type="revolute">
+    <origin xyz="0 0.068 0" rpy="0 0 0" />
+    <parent link="shoulder_pitch_l_link" />
+    <child link="shoulder_roll_l_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="60" lower="-0.2618" upper="3.4" velocity="12" />
+  </joint>
+
+  <link name="shoulder_yaw_l_link">
+    <inertial>
+      <origin xyz="0.008387 0.003730 -0.112290" rpy="0 0 0" />
+      <mass value="1.307604" />
+      <inertia ixx="0.009261" ixy="0.000052" ixz="-0.000968" iyy="0.009283" iyz="-0.000413" izz="0.000836" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_yaw_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_yaw_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="shoulder_yaw_l_joint" type="revolute">
+    <origin xyz="0 0 -0.1025" rpy="0 0 0" />
+    <parent link="shoulder_roll_l_link" />
+    <child link="shoulder_yaw_l_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="30" lower="-2.96" upper="2.96" velocity="7.3" />
+  </joint>
+
+  <link name="elbow_pitch_l_link">
+    <inertial>
+      <origin xyz="-0.014369 -0.000090 -0.024267" rpy="0 0 0" />
+      <mass value="0.222661" />
+      <inertia ixx="0.000364" ixy="-0.000001" ixz="0.000010" iyy="0.000208" iyz="-3.96645947452354E-05" izz="0.000387" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="elbow_pitch_l_joint" type="revolute">
+    <origin xyz="0.02 0 -0.1975" rpy="0 0 0" />
+    <parent link="shoulder_yaw_l_link" />
+    <child link="elbow_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="30" lower="-2.61" upper="0.261" velocity="7.3" />
+  </joint>
+
+
+  <link name="elbow_yaw_l_link">
+    <inertial>
+      <origin xyz="0.000080 0.001150 -0.069083" rpy="0 0 0" />
+      <mass value="0.990079" />
+      <inertia ixx="0.002961" ixy="0.000001" ixz="-0.000003" iyy="0.002878" iyz="-0.000062" izz="0.000422" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_yaw_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_yaw_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="elbow_yaw_l_joint" type="revolute">
+    <origin xyz="-0.02 0 -0.0543" rpy="0 0 0" />
+    <parent link="elbow_pitch_l_link" />
+    <child link="elbow_yaw_l_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="15" lower="-2.9671" upper="2.9671" velocity="14.6" />
+  </joint>
+
+  <link name="wrist_pitch_l_link">
+    <inertial>
+      <origin xyz="0.005341 0.000652 -0.018511" rpy="0 0 0" />
+      <mass value="0.266415" />
+      <inertia ixx="0.000074" ixy="0.000003" ixz="0.000002" iyy="0.000114" iyz="0.000003" izz="0.000113" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_pitch_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_pitch_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_pitch_l_joint" type="revolute">
+    <origin xyz="0 0.002 -0.1887" rpy="0 0 0" />
+    <parent link="elbow_yaw_l_link" />
+    <child link="wrist_pitch_l_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="9" lower="-1.3" upper="1.65" velocity="7.2" />
+  </joint>
+
+  <link name="wrist_roll_l_link">
+    <inertial>
+      <origin xyz="0.001596 0.000155  -0.018822" rpy="0 0 0" />
+      <mass value="0.065684" />
+      <inertia ixx="0.000033" ixy="-1.01838157154324E-07" ixz="0.000001" iyy="0.000073" iyz="-2.28155013652257E-07" izz="0.000064" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_roll_l_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_roll_l_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_roll_l_joint" type="revolute">
+    <origin xyz="5.0485E-05 0 -0.02" rpy="0 0 0" />
+    <parent link="wrist_pitch_l_link" />
+    <child link="wrist_roll_l_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="9" lower="-1.04" upper="0.785" velocity="7.2" />
+  </joint>
+
+  <link name="shoulder_pitch_r_link">
+    <inertial>
+      <origin xyz="0.007540 -0.064361 -0.000037" rpy="0 0 0" />
+      <mass value="1.030628" />
+      <inertia ixx="0.000536" ixy="-0.000025" ixz="1.26194941072712E-08" iyy="0.000480" iyz="-2.95758293199811E-08" izz="0.000636" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- 右臂根关节相对 waist_yaw_link：原为 y=-0.14539；现为 -0.16539（沿机器人 -Y 外移 0.02m），
+       用于可视化对齐微调。+Y=机器人左、-Y=右。若骨架应往反方向动，改回 -0.14539 或略增大 y。 -->
+  <joint name="shoulder_pitch_r_joint" type="revolute">
+    <origin xyz="0 -0.10539 0.37721" rpy="-0.087266 0 0" />
+    <parent link="waist_yaw_link" />
+    <child link="shoulder_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="91" lower="-2.96" upper="2.96" velocity="8.8" />
+  </joint>
+
+  <link name="shoulder_roll_r_link">
+    <inertial>
+      <origin xyz="0.00106653447924365 -0.00220628914286614 -0.0441160803631309" rpy="0 0 0" />
+      <mass value="0.412600522097283" />
+      <inertia ixx="0.000939" ixy="-0.000001" ixz="0.000001" iyy="0.001264" iyz="-0.000005" izz="0.000896" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_roll_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_roll_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_roll_r_joint" type="revolute">
+    <origin xyz="0 -0.068 0" rpy="0 0 0" />
+    <parent link="shoulder_pitch_r_link" />
+    <child link="shoulder_roll_r_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="60" lower="-3.4" upper="0.2618" velocity="12" />
+  </joint>
+  <link name="shoulder_yaw_r_link">
+    <inertial>
+      <origin xyz="0.008387 -0.003730 -0.112290" rpy="0 0 0" />
+      <mass value="1.307604" />
+      <inertia ixx="0.009261" ixy="-0.000052" ixz="-0.000968" iyy="0.009283" iyz="0.000413" izz="0.000836" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_yaw_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/shoulder_yaw_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_yaw_r_joint" type="revolute">
+    <origin xyz="0 0 -0.1025" rpy="0 0 0" />
+    <parent link="shoulder_roll_r_link" />
+    <child link="shoulder_yaw_r_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="30" lower="-2.96" upper="2.96" velocity="7.3" />
+  </joint>
+  <link name="elbow_pitch_r_link">
+    <inertial>
+      <origin xyz="-0.014369 0.000090 -0.024267" rpy="0 0 0" />
+      <mass value="0.222661" />
+      <inertia ixx="0.000364" ixy="0.000001" ixz="0.000010" iyy="0.000208" iyz="3.96645947452354E-05" izz="0.000387" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_pitch_r_joint" type="revolute">
+    <origin xyz="0.02 0 -0.1975" rpy="0 0 0" />
+    <parent link="shoulder_yaw_r_link" />
+    <child link="elbow_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="30" lower="-2.61" upper="0.261" velocity="7.3" />
+  </joint>
+  <link name="elbow_yaw_r_link">
+    <inertial>
+      <origin xyz="0.000080 0.001150 -0.069083" rpy="0 0 0" />
+      <mass value="0.990079" />
+      <inertia ixx="0.002961" ixy="0.000001" ixz="-0.000003" iyy="0.002878" iyz="-0.000062" izz="0.000422" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_yaw_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/elbow_yaw_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_yaw_r_joint" type="revolute">
+    <origin xyz="-0.02 0 -0.0543" rpy="0 0 0" />
+    <parent link="elbow_pitch_r_link" />
+    <child link="elbow_yaw_r_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="15" lower="-2.9671" upper="2.9671" velocity="14.6" />
+  </joint>
+  <link name="wrist_pitch_r_link">
+    <inertial>
+      <origin xyz="0.005341 -0.000652 -0.018511" rpy="0 0 0" />
+      <mass value="0.266415" />
+      <inertia ixx="0.000074" ixy="-0.000003" ixz="0.000002" iyy="0.000114" iyz="-0.000003" izz="0.000113" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_pitch_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_pitch_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_pitch_r_joint" type="revolute">
+    <origin xyz="0 -0.002 -0.1887" rpy="0 0 0" />
+    <parent link="elbow_yaw_r_link" />
+    <child link="wrist_pitch_r_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="9" lower="-1.3" upper="1.65" velocity="7.2" />
+  </joint>
+  <link name="wrist_roll_r_link">
+    <inertial>
+      <origin xyz="0.001596 -0.000155  -0.018822" rpy="0 0 0" />
+      <mass value="0.065684" />
+      <inertia ixx="0.000033" ixy="1.01838157154324E-07" ixz="0.000001" iyy="0.000073" iyz="2.28155013652257E-07" izz="0.000064" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_roll_r_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/wrist_roll_r_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_roll_r_joint" type="revolute">
+    <origin xyz="5.0485E-05 0 -0.02" rpy="0 0 0" />
+    <parent link="wrist_pitch_r_link" />
+    <child link="wrist_roll_r_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="9" lower="-1.04" upper="0.785" velocity="7.2" />
+  </joint>
+
+
+<link name="camera_body_front_link">
+    <inertial>
+      <origin xyz="0.00237692174920212 0.000434118130100225 0.0140702711353752" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.000127" ixy="-2.02394880101632E-07" ixz="8.52987598667763E-08" iyy="0.000015" iyz="0.000001" izz="0.000127" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_body_front_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_body_front_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_body_front_joint" type="fixed">
+    <origin xyz="0.06958 0 0.035588" rpy="0 0.57596 0" />
+    <parent link="waist_yaw_link" />
+    <child link="camera_body_front_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="camera_body_back_link">
+    <inertial>
+      <origin xyz="0.00237649164540174 0.00043225026555258 0.0140705865194365" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.000127" ixy="-2.02394880101632E-07" ixz="8.52987598667763E-08" iyy="0.000015" iyz="0.000001" izz="0.000127" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_body_back_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/camera_body_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_body_back_joint" type="fixed">
+    <origin xyz="-0.1054 0 0.29423" rpy="-3.1416 0.43633 -3.1416" />
+    <parent link="waist_yaw_link" />
+    <child link="camera_body_back_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+<link name="ag95_l_gripper_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/base_link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/base_link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.83416" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.0013016" ixy="-6.9374e-07" ixz="5.9848e-07" iyx="0.000000" iyy="0.00049972" iyz="2.0244E-07" izx="0.000000" izy="0.000000" izz="0.001498" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger1_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.011111" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="3.88172e-06" ixy="-2.29456e-13" ixz="8.33e-07" iyx="0.000000" iyy="1.92174e-06" iyz="2.04435e-13" izx="0.000000" izy="0.000000" izz="4.32374e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger2_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.011111" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="3.88172e-06" ixy="-2.29456e-13" ixz="8.33e-07" iyx="0.000000" iyy="1.92174e-06" iyz="2.04435e-13" izx="0.000000" izy="0.000000" izz="4.32374e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger1_finger_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0222871" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="8.72836e-06" ixy="7.0843e-15" ixz="-2.18833e-06" iyx="-0.000002" iyy="7.26157e-06" iyz="7.6579e-15" izx="0.000000" izy="0.000000" izz="3.3425e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger2_finger_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0222871" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="8.72836e-06" ixy="7.0843e-15" ixz="-2.18833e-06" iyx="-0.000002" iyy="7.26157e-06" iyz="7.6579e-15" izx="0.000000" izy="0.000000" izz="3.3425e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger1_inner_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0318004" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="1.39848e-05" ixy="-9.54763e-15" ixz="-5.01422e-06" iyx="0.000000" iyy="1.04943e-05" iyz="8.94585e-16" izx="0.000000" izy="0.000000" izz="1.36183e-05" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger2_inner_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0318004" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="1.39848e-05" ixy="-9.54763e-15" ixz="-5.01422e-06" iyx="0.000000" iyy="1.04943e-05" iyz="8.94585e-16" izx="0.000000" izy="0.000000" izz="1.36183e-05" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger1_finger_tip_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0124305" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="2.84217e-06" ixy="-2.48048e-15" ixz="8.24539e-07" iyx="0.000000" iyy="3.03961e-06" iyz="2.16427e-13" izx="0.000000" izy="0.000000" izz="1.11815e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_l_gripper_finger2_finger_tip_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0124305" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="2.84217e-06" ixy="-2.48048e-15" ixz="8.24539e-07" iyx="0.000000" iyy="3.03961e-06" iyz="2.16427e-13" izx="0.000000" izy="0.000000" izz="1.11815e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/base_link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/base_link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.83416" />
+      <origin xyz="1 0.0 0.0" />
+      <inertia ixx="0.0013016" ixy="-6.9374e-07" ixz="5.9848e-07" iyx="0.000000" iyy="0.00049972" iyz="2.0244E-07" izx="0.000000" izy="0.000000" izz="0.001498" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger1_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.011111" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="3.88172e-06" ixy="-2.29456e-13" ixz="8.33e-07" iyx="0.000000" iyy="1.92174e-06" iyz="2.04435e-13" izx="0.000000" izy="0.000000" izz="4.32374e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger2_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/crank_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.011111" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="3.88172e-06" ixy="-2.29456e-13" ixz="8.33e-07" iyx="0.000000" iyy="1.92174e-06" iyz="2.04435e-13" izx="0.000000" izy="0.000000" izz="4.32374e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger1_finger_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0222871" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="8.72836e-06" ixy="7.0843e-15" ixz="-2.18833e-06" iyx="-0.000002" iyy="7.26157e-06" iyz="7.6579e-15" izx="0.000000" izy="0.000000" izz="3.3425e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger2_finger_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/rod_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0222871" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="8.72836e-06" ixy="7.0843e-15" ixz="-2.18833e-06" iyx="-0.000002" iyy="7.26157e-06" iyz="7.6579e-15" izx="0.000000" izy="0.000000" izz="3.3425e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger1_inner_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.0318004" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="1.39848e-05" ixy="-9.54763e-15" ixz="-5.01422e-06" iyx="0.000000" iyy="1.04943e-05" iyz="8.94585e-16" izx="0.000000" izy="0.000000" izz="1.36183e-05" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger2_inner_knuckle_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0318004" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="1.39848e-05" ixy="-9.54763e-15" ixz="-5.01422e-06" iyx="0.000000" iyy="1.04943e-05" iyz="8.94585e-16" izx="0.000000" izy="0.000000" izz="1.36183e-05" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger1_finger_tip_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0124305" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="2.84217e-06" ixy="-2.48048e-15" ixz="8.24539e-07" iyx="0.000000" iyy="3.03961e-06" iyz="2.16427e-13" izx="0.000000" izy="0.000000" izz="1.11815e-06" />
+    </inertial>
+  </link>
+
+  <link name="ag95_r_gripper_finger2_finger_tip_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://tiangong_description/meshes/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    
+    <inertial>
+      <mass value="0.0124305" />
+      <origin xyz="0.0 0.0 0.0" />
+      <inertia ixx="2.84217e-06" ixy="-2.48048e-15" ixz="8.24539e-07" iyx="0.000000" iyy="3.03961e-06" iyz="2.16427e-13" izx="0.000000" izy="0.000000" izz="1.11815e-06" />
+    </inertial>
+  </link>
+
+  <joint name="ag95_l_gripper_finger1_joint" type="revolute">
+    <parent link="ag95_l_gripper_base_link" />
+    <child link="ag95_l_gripper_finger1_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 3.14" xyz="-0.016 0 0.10586" />
+    <limit lower="0.0" upper="0.6524" velocity="2.0" effort="1000" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger2_joint" type="revolute">
+    <parent link="ag95_l_gripper_base_link" />
+    <child link="ag95_l_gripper_finger2_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.016  0 0.10586 " />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="1000" />
+    <mimic joint="ag95_l_gripper_finger1_joint" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger1_finger_joint" type="continuous">
+    <parent link="ag95_l_gripper_finger1_knuckle_link" />
+    <child link="ag95_l_gripper_finger1_finger_link" />
+    <axis xyz="0 -1 0" />
+    <origin xyz="0.0292080077784 0.0 -0.0227132622407" rpy="0 0 0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="0.4563942" offset="0" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger2_finger_joint" type="continuous">
+    <parent link="ag95_l_gripper_finger2_knuckle_link" />
+    <child link="ag95_l_gripper_finger2_finger_link" />
+    <axis xyz="0 -1 0" />
+    <origin xyz="0.0292080077784 0.0 -0.0227132622407" rpy="0 0 0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="0.4563942" offset="0" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger1_inner_knuckle_joint" type="continuous">
+    <parent link="ag95_l_gripper_base_link" />
+    <child link="ag95_l_gripper_finger1_inner_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 3.14" xyz="-0.016 0 0.10586" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="1.49462955" offset="0" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger2_inner_knuckle_joint" type="continuous">
+    <parent link="ag95_l_gripper_base_link" />
+    <child link="ag95_l_gripper_finger2_inner_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.016 0 0.10586" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="1.49462955" offset="0" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger1_finger_tip_joint" type="continuous">
+    <parent link="ag95_l_gripper_finger1_inner_knuckle_link" />
+    <child link="ag95_l_gripper_finger1_finger_tip_link" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0394969463769 0.0 0.0382752038125 " rpy="0.0 0.0 0.0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="1.49462955" />
+  </joint>
+
+  <joint name="ag95_l_gripper_finger2_finger_tip_joint" type="continuous">
+    <parent link="ag95_l_gripper_finger2_inner_knuckle_link" />
+    <child link="ag95_l_gripper_finger2_finger_tip_link" />
+    <axis xyz="0 1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0394969463769  0.0 0.0382752038125  " />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_l_gripper_finger1_joint" multiplier="1.49462955" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger1_joint" type="revolute">
+    <parent link="ag95_r_gripper_base_link" />
+    <child link="ag95_r_gripper_finger1_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 3.14" xyz="-0.016 0 0.10586" />
+    <limit lower="0.0" upper="0.6524" velocity="2.0" effort="1000" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger2_joint" type="revolute">
+    <parent link="ag95_r_gripper_base_link" />
+    <child link="ag95_r_gripper_finger2_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.016  0 0.10586 " />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="1000" />
+    <mimic joint="ag95_r_gripper_finger1_joint" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger1_finger_joint" type="continuous">
+    <parent link="ag95_r_gripper_finger1_knuckle_link" />
+    <child link="ag95_r_gripper_finger1_finger_link" />
+    <axis xyz="0 -1 0" />
+    <origin xyz="0.0292080077784 0.0 -0.0227132622407" rpy="0 0 0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="0.4563942" offset="0" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger2_finger_joint" type="continuous">
+    <parent link="ag95_r_gripper_finger2_knuckle_link" />
+    <child link="ag95_r_gripper_finger2_finger_link" />
+    <axis xyz="0 -1 0" />
+    <origin xyz="0.0292080077784 0.0 -0.0227132622407" rpy="0 0 0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="0.4563942" offset="0" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger1_inner_knuckle_joint" type="continuous">
+    <parent link="ag95_r_gripper_base_link" />
+    <child link="ag95_r_gripper_finger1_inner_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 3.14" xyz="-0.016 0 0.10586" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="1.49462955" offset="0" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger2_inner_knuckle_joint" type="continuous">
+    <parent link="ag95_r_gripper_base_link" />
+    <child link="ag95_r_gripper_finger2_inner_knuckle_link" />
+    <axis xyz="0 -1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.016 0 0.10586" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="1.49462955" offset="0" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger1_finger_tip_joint" type="continuous">
+    <parent link="ag95_r_gripper_finger1_inner_knuckle_link" />
+    <child link="ag95_r_gripper_finger1_finger_tip_link" />
+    <axis xyz="0 1 0" />
+    <origin xyz="0.0394969463769 0.0 0.0382752038125 " rpy="0.0 0.0 0.0" />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="1.49462955" />
+  </joint>
+
+  <joint name="ag95_r_gripper_finger2_finger_tip_joint" type="continuous">
+    <parent link="ag95_r_gripper_finger2_inner_knuckle_link" />
+    <child link="ag95_r_gripper_finger2_finger_tip_link" />
+    <axis xyz="0 1 0" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0394969463769  0.0 0.0382752038125  " />
+    <limit lower="-3.14" upper="3.14" velocity="100.0" effort="0.1" />
+    <mimic joint="ag95_r_gripper_finger1_joint" multiplier="1.49462955" />
+  </joint>
+
+  <joint name="ag95_left_mount" type="fixed"><origin xyz="0 0 -0.045" rpy="0 3.14159 0" /><parent link="wrist_roll_l_link" /><child link="ag95_l_gripper_base_link" /></joint><joint name="ag95_right_mount" type="fixed"><origin xyz="0 0 -0.045" rpy="0 3.14159 0" /><parent link="wrist_roll_r_link" /><child link="ag95_r_gripper_base_link" /></joint><gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  
+
+  <gazebo reference="ag95_l_gripper_base_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger1_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger2_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger1_finger_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger2_finger_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger1_inner_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger2_inner_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger1_finger_tip_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_l_gripper_finger2_finger_tip_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo>
+    
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_1">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger2_joint</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_2">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger2_inner_knuckle_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_3">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger1_inner_knuckle_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_4">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger1_finger_tip_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_5">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger2_finger_tip_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_6">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger1_finger_joint</mimicJoint>
+      <multiplier>0.4563942</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_7">
+      <joint>ag95_l_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_l_gripper_finger2_finger_joint</mimicJoint>
+      <multiplier>0.4563942</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+  </gazebo>
+<gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  
+
+  <gazebo reference="ag95_r_gripper_base_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger1_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger2_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger1_finger_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger2_finger_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger1_inner_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger2_inner_knuckle_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger1_finger_tip_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo reference="ag95_r_gripper_finger2_finger_tip_link">
+    <implicitSpringDamper>1</implicitSpringDamper>
+    <mu1>100000</mu1>
+    <mu2>100000</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <gazebo>
+    
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_1">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger2_joint</mimicJoint>
+      <multiplier>1.0</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_2">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger2_inner_knuckle_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_3">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger1_inner_knuckle_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_4">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger1_finger_tip_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_5">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger2_finger_tip_joint</mimicJoint>
+      <multiplier>1.49462955</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_6">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger1_finger_joint</mimicJoint>
+      <multiplier>0.4563942</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+    <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic_dh_robotics_ag95_7">
+      <joint>ag95_r_gripper_finger1_joint</joint>
+      <mimicJoint>ag95_r_gripper_finger2_finger_joint</mimicJoint>
+      <multiplier>0.4563942</multiplier>
+      <offset>0.0</offset>
+    </plugin>
+  </gazebo>
+<transmission name="ag95_l_gripper_finger1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ag95_l_gripper_finger1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="ag95_l_gripper_finger1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <transmission name="ag95_r_gripper_finger1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="ag95_r_gripper_finger1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="ag95_r_gripper_finger1_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <link name="left_camera_mount_link"><visual><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="package://tiangong_description/meshes/camera_mount.stl" scale="0.001 0.001 0.001" /></geometry></visual><collision><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="package://tiangong_description/meshes/camera_mount.stl" scale="0.001 0.001 0.001" /></geometry></collision><inertial><origin xyz="0 0 0" rpy="0 0 0" /><mass value="0.01" /><inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" /></inertial></link><joint name="left_camera_mount_joint" type="fixed"><origin xyz="0 0 -0.036" rpy="-1.5707 3.14159 1.5708" /><parent link="wrist_roll_l_link" /><child link="left_camera_mount_link" /></joint><link name="right_camera_mount_link"><visual><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="package://tiangong_description/meshes/camera_mount.stl" scale="0.001 0.001 0.001" /></geometry></visual><collision><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="package://tiangong_description/meshes/camera_mount.stl" scale="0.001 0.001 0.001" /></geometry></collision><inertial><origin xyz="0 0 0" rpy="0 0 0" /><mass value="0.01" /><inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" /></inertial></link><joint name="right_camera_mount_joint" type="fixed"><origin xyz="0 0 -0.036" rpy="-1.5707 3.14159 1.5708" /><parent link="wrist_roll_r_link" /><child link="right_camera_mount_link" /></joint><joint name="left_camera_336_joint" type="fixed"><origin xyz="0.055 -0.016 -0.075" rpy="1.75 3.14159 0" /><parent link="left_camera_mount_link" /><child link="left_camera_336_link" /></joint><joint name="right_camera_336_joint" type="fixed"><origin xyz="0.055 -0.016 -0.075" rpy="1.75 3.14159 0" /><parent link="right_camera_mount_link" /><child link="right_camera_336_link" /></joint></robot>

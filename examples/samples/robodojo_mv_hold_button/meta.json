@@ -1,0 +1,165 @@
+{
+  "source": "robodojo",
+  "name": "robodojo_mv_hold_button",
+  "prompt": "Use the mallet head to press and hold the button. Keep holding until the button changes color, then promptly lift the mallet away and let the button return fully. Leave the button untouched afterward.",
+  "task_name": "hold_button_until_cue",
+  "episode_index": 2272,
+  "frames": 258,
+  "source_fps": 25.0,
+  "temporal_stride": 2,
+  "model_fps": 12.5,
+  "action_dim": 28,
+  "already_unified": true,
+  "num_arms": 2,
+  "width": 640,
+  "height": 480,
+  "rgb": "rgb.mp4",
+  "action": "action.npy",
+  "K": [
+    [
+      288.13254096884566,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      288.13254096884566,
+      240.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "T_world_camera_opencv": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -0.8660253435950835,
+      0.5000001052916332,
+      -0.4099999964237213
+    ],
+    [
+      0.0,
+      -0.5000001052916332,
+      -0.8660253435950835,
+      1.3079999685287476
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "arm_bases": {
+    "left": [
+      [
+        0.0,
+        -1.0000000000000002,
+        0.0,
+        -0.30000001192092896
+      ],
+      [
+        1.0000000000000002,
+        0.0,
+        0.0,
+        -0.44999998807907104
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002,
+        0.7649999856948853
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "right": [
+      [
+        0.0,
+        -1.0000000000000002,
+        0.0,
+        0.30000001192092896
+      ],
+      [
+        1.0000000000000002,
+        0.0,
+        0.0,
+        -0.44999998807907104
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002,
+        0.7649999856948853
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "base_source": "hdf5",
+  "source_start_frame": 0,
+  "layout": "mv_fill",
+  "views": {
+    "cam_high": {
+      "rgb": "rgb.mp4"
+    },
+    "cam_left_wrist": {
+      "rgb": "rgb_cam_left_wrist.mp4",
+      "K": [
+        [
+          397.04127893104277,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          397.04127893104277,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_track": "camera_tracks.npz"
+    },
+    "cam_right_wrist": {
+      "rgb": "rgb_cam_right_wrist.mp4",
+      "K": [
+        [
+          397.04127893104277,
+          0.0,
+          320.0
+        ],
+        [
+          0.0,
+          397.04127893104277,
+          240.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_track": "camera_tracks.npz"
+    }
+  }
+}

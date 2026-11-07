@@ -1,0 +1,18 @@
+{
+  "source": "robomind",
+  "name": "robomind_close_laptop",
+  "prompt": "close the laptop",
+  "lang": "close the laptop",
+  "frames": 111,
+  "num_arms": 2,
+  "action_dim": 28,
+  "already_unified": true,
+  "temporal_stride": 2,
+  "width": 1280,
+  "height": 720,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "robot": "tienkung_pro2_dualArm-gripper",
+  "org_path": "raw_data/tienkung_pro2_dualArm-gripper-1cameras_2/tienkung_pro2_2_close_laptop_250828/success_episodes/0829_152720/data",
+  "rgb_video": "rgb.mp4"
+}

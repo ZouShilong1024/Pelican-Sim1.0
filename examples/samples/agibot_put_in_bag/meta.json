@@ -1,0 +1,37 @@
+{
+  "source": "agibot",
+  "name": "agibot_put_in_bag",
+  "prompt": "Put deodorant and red can in bag",
+  "lang": "Put deodorant and red can in bag",
+  "frames": 1005,
+  "num_arms": 2,
+  "action_dim": 28,
+  "already_unified": true,
+  "temporal_stride": 9,
+  "width": 640,
+  "height": 480,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "task_name": "agibot_gripper__task_356",
+  "episode_index": 88,
+  "camera_params": {
+    "fx": 322.87115478515625,
+    "fy": 429.896728515625,
+    "cx": 318.9473571777344,
+    "cy": 239.52880859375,
+    "camera_offset_xyz": [
+      0.09499970151755256,
+      -0.05384286243596076,
+      0.01288030966854725
+    ]
+  },
+  "head_pos": [
+    0.0,
+    0.2791999876499176
+  ],
+  "waist_pos": [
+    0.5235000252723694,
+    0.3896864354610443
+  ],
+  "rgb_video": "rgb.mp4"
+}

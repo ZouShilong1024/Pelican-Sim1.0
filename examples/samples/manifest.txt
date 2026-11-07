@@ -1,0 +1,8 @@
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/libero_spatial_top_drawer
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/maniskill_pick_cube
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/robocasa_coffee_serve_mug
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/realsource_arrange_cups
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/agibot_put_in_bag
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/agibot_dexhand_steam_shirt
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/robomind_close_laptop
+/mnt/jackzou/Pelican-Sim-Infer/examples/samples/robotwin_blocks_ranking

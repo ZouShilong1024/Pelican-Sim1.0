@@ -1,0 +1,74 @@
+{
+  "source": "robocasa",
+  "name": "robocasa_coffee_serve_mug",
+  "prompt": "pick the mug from under the coffee machine dispenser and place it on the counter",
+  "lang": "pick the mug from under the coffee machine dispenser and place it on the counter",
+  "fps": 20.0,
+  "frames": 341,
+  "num_arms": 1,
+  "action_dim": 8,
+  "already_unified": false,
+  "temporal_stride": 1,
+  "width": 512,
+  "height": 512,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "camera": "robot0_agentview_left",
+  "task_name": "CoffeeServeMug",
+  "K": [
+    [
+      443.4050067376327,
+      0.0,
+      256.0
+    ],
+    [
+      0.0,
+      443.4050067376327,
+      256.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "base_pos": [
+    1.3445807386183553,
+    -0.800000075304223,
+    0.6999998178120647
+  ],
+  "base_quat_wxyz": [
+    0.707107720440107,
+    0.0,
+    0.0,
+    0.7071058419317405
+  ],
+  "E_cam2world": [
+    [
+      0.9792967799003754,
+      -0.09726292824369834,
+      0.17753236230675354,
+      0.9945794103135861
+    ],
+    [
+      -0.20197659522460346,
+      -0.5281277014938871,
+      0.8247948750424313,
+      -1.2999991454882553
+    ],
+    [
+      0.01353779369882363,
+      -0.8435763472882846,
+      -0.5368385925373876,
+      1.7499998178120646
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "view": "left",
+  "rgb_video": "rgb.mp4"
+}

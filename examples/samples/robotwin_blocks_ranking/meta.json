@@ -1,0 +1,55 @@
+{
+  "source": "robotwin",
+  "name": "robotwin_blocks_ranking",
+  "prompt": "Place large block, medium block, small block centrally and arrange largest to smallest.",
+  "lang": "Place large block, medium block, small block centrally and arrange largest to smallest.",
+  "frames": 441,
+  "num_arms": 2,
+  "action_dim": 28,
+  "already_unified": true,
+  "temporal_stride": 2,
+  "width": 640,
+  "height": 480,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "task_name": "blocks_ranking_size",
+  "episode_index": 223,
+  "K": [
+    [
+      717.2843627929688,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      717.2843627929688,
+      240.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "E_world2cam": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.03446716070175171
+    ],
+    [
+      0.0,
+      -0.800000011920929,
+      -0.6000000238418579,
+      0.4520924687385559
+    ],
+    [
+      0.0,
+      0.6000000238418579,
+      -0.800000011920929,
+      1.354957103729248
+    ]
+  ],
+  "rgb_video": "rgb.mp4"
+}

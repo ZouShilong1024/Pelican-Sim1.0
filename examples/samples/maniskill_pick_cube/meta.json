@@ -1,0 +1,74 @@
+{
+  "source": "maniskill",
+  "name": "maniskill_pick_cube",
+  "prompt": "pick up the cube and move it to the goal position",
+  "lang": "pick up the cube and move it to the goal position",
+  "fps": 20.0,
+  "frames": 75,
+  "num_arms": 1,
+  "action_dim": 8,
+  "already_unified": false,
+  "temporal_stride": 1,
+  "width": 512,
+  "height": 512,
+  "rgb": "first_frame.png",
+  "action": "action.npy",
+  "camera": "render_camera",
+  "camera_preset": "classic_3q",
+  "task_name": "PickCube-v1",
+  "K": [
+    [
+      468.6048583984375,
+      0.0,
+      256.0
+    ],
+    [
+      0.0,
+      468.6048583984375,
+      256.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "env_id": "PickCube-v1",
+  "traj_id": "traj_0",
+  "camera_eye": [
+    0.6,
+    0.7,
+    0.6
+  ],
+  "camera_target": [
+    0.0,
+    0.0,
+    0.35
+  ],
+  "base_pos": [
+    -0.615,
+    0.0,
+    0.0
+  ],
+  "E_world2cam": [
+    [
+      -0.7592566023652965,
+      0.6507913734559685,
+      -2.0339105167474476e-17,
+      7.118686808616067e-18
+    ],
+    [
+      0.17031988674109785,
+      0.19870653453128087,
+      -0.9651460248662213,
+      0.3378011087031774
+    ],
+    [
+      -0.6281087071082564,
+      -0.732793491626299,
+      -0.2617119612951069,
+      1.0468478451804273
+    ]
+  ],
+  "rgb_video": "rgb.mp4"
+}
