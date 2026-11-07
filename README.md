@@ -280,16 +280,6 @@ JOB_DIR=outputs/pelican_sim/finetune/robodojo_mv_ft ./infer_robodojo_mv.sh   # e
   action skeleton; head camera on top, left | right wrist below.</em>
 </p>
 
-`./infer_robodojo_mv.sh` on `examples/samples/robodojo_mv_hold_button` (129 frames at 12.5 fps, 11 autoregressive
-13-frame chunks, guidance 3, 35 steps, seed 0) with the multi-view checkpoint at iteration 194k:
-
-| View | PSNR | SSIM |
-| --- | ---: | ---: |
-| Packed canvas | 31.43 | 0.909 |
-| Head (`cam_high`) | 31.92 | – |
-| Left wrist (`cam_left_wrist`) | 34.14 | – |
-| Right wrist (`cam_right_wrist`) | 28.84 | – |
-
 ## Repository layout
 
 ```text
