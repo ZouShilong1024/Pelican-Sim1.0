@@ -67,7 +67,7 @@ online skeleton renderer. The fine-tuning guide uses
   repository.
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/0fda3515-7985-4a33-ae5f-99f7509905c4" width="100%" controls autoplay loop muted playsinline></video>
+  <a href="assets/results.mp4"><img src="assets/results.gif" width="100%" alt="Bundled rollouts: prediction, original RGB, action skeleton"></a>
 </p>
 <p align="center">
   <em>Bundled rollouts (left → right): prediction · original RGB · action skeleton.</em>
@@ -160,7 +160,7 @@ Eight self-contained clips live under [`examples/samples/`](examples/samples/) (
 to them needs the multi-view checkpoint (see [Multi-view RoboDojo](#multi-view-robodojo)).
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/f0721870-8f17-45a0-a9a1-13be7e0ffb93" width="100%" controls autoplay loop muted playsinline></video>
+  <a href="assets/examples.mp4"><img src="assets/examples.gif" width="100%" alt="The eight example episodes"></a>
 </p>
 <p align="center">
   <em>Libero · ManiSkill · RoboCasa · AgiBot &nbsp;|&nbsp; AgiBot dexhand · RealSource · RoboMind · RoboTwin</em>
@@ -273,12 +273,22 @@ JOB_DIR=outputs/pelican_sim/finetune/robodojo_mv_ft ./infer_robodojo_mv.sh   # e
 ```
 
 <p align="center">
-  <video src="assets/robodojo_mv.mp4" width="100%" controls autoplay loop muted playsinline></video>
+  <a href="assets/robodojo_mv.mp4"><img src="assets/robodojo_mv.gif" width="100%" alt="Multi-view RoboDojo rollout"></a>
 </p>
 <p align="center">
   <em>Multi-view RoboDojo rollout of <code>robodojo_mv_hold_button</code> (left → right): prediction · original RGB ·
   action skeleton; head camera on top, left | right wrist below.</em>
 </p>
+
+`./infer_robodojo_mv.sh` on `examples/samples/robodojo_mv_hold_button` (129 frames at 12.5 fps, 11 autoregressive
+13-frame chunks, guidance 3, 35 steps, seed 0) with the multi-view checkpoint at iteration 194k:
+
+| View | PSNR | SSIM |
+| --- | ---: | ---: |
+| Packed canvas | 31.43 | 0.909 |
+| Head (`cam_high`) | 31.92 | – |
+| Left wrist (`cam_left_wrist`) | 34.14 | – |
+| Right wrist (`cam_right_wrist`) | 28.84 | – |
 
 ## Repository layout
 
